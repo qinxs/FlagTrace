@@ -1,0 +1,9 @@
+node_modules
+release
+build
+dist
+mmdbinspect
+pnpm-lock.yaml
+.env
+*.zip
+TODO.md
