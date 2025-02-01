@@ -1,0 +1,46 @@
+name: Publish to Firefox Add-ons
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy-firefox:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Firefox Extension
+        run: pnpm build:firefox
+
+      - name: Install web-ext
+        run: pnpm add -g web-ext
+
+      - name: Sign & Deploy
+        env:
+          JWT_ISSUER: ${{ secrets.AMO_JWT_ISSUER }}
+          JWT_SECRET: ${{ secrets.AMO_JWT_SECRET }}
+        run: |
+          web-ext sign \
+            --source-dir=dist/firefox \
+            --api-key=$JWT_ISSUER \
+            --api-secret=$JWT_SECRET \
+            --channel=listed \
+            --amo-metadata=amo-metadata.json
