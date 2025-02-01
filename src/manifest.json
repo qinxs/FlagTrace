@@ -1,0 +1,40 @@
+{
+  "name": "Flag Trace",
+  "version": "1.0.0",
+  "manifest_version": 3,
+
+  "author": "qinxs",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+
+  "action": {},
+  "background": {
+    "service_worker": "worker.js"
+  },
+
+  "homepage_url": "https://github.com/qinxs/FlagTrace",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "permissions": [
+    "clipboardWrite",
+    "contextMenus",
+    "dns",
+    "scripting",
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
