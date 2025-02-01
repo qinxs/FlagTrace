@@ -1,0 +1,25 @@
+{
+  "name": "Flag Trace",
+  "version": "1.0.4",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm build:chrome && pnpm build:firefox",
+    "build:chrome": "cross-env TARGET_BROWSER=chrome vite build && pnpm run delIndex",
+    "build:firefox": "cross-env TARGET_BROWSER=firefox vite build && pnpm run delIndex",
+    "zip": "node scripts/zip.mjs --chrome --firefox",
+    "zip:chrome": "node scripts/zip.mjs --chrome",
+    "zip:firefox": "node scripts/zip.mjs --firefox",
+    "delIndex": "rimraf dist/chrome/index.html dist/firefox/index.html",
+    "chrome": "pnpm build:chrome && pnpm zip:chrome",
+    "package": "pnpm build && pnpm zip"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "cross-env": "^7.0.3",
+    "rimraf": "^6.0.1",
+    "vite": "^6.1.0",
+    "vite-plugin-static-copy": "^2.2.0"
+  }
+}

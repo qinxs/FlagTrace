@@ -1,0 +1,155 @@
+{
+    "appDesc": {
+        "message": "Country Flag & Domain Tools"
+    },
+    "options": {
+        "message": "Options"
+    },
+
+    "location": {
+        "message": "Geolocation"
+    },
+    "domain": {
+        "message": "Domain"
+    },
+    "ipAdress": {
+        "message": "IP Adress"
+    },
+    "ipAdressFromDNS": {
+        "message": "ByDNS"
+    },
+    "ipClass": {
+        "message": "IP Class"
+    },
+    "class": {
+        "message": " Class"
+    },
+    "LAN": {
+        "message": "Local Area Network"
+    },
+    "localComputer": {
+        "message": "The Local Machine"
+    },
+    "unknown": {
+        "message": "- -"
+    },
+    "noIPTip": {
+        "message": "No IP information obtained!"
+    },
+    "internalPage": {
+        "message": "Internal Page"
+    },
+    "extensionPage": {
+        "message": "Extension Page"
+    },
+    "localFile": {
+        "message": "Local File"
+    },
+
+    "openIn": {
+        "message": "Page open in"
+    },
+    "currentTab": {
+        "message": "Current tab"
+    },
+    "createForegroundTab": {
+        "message": "Create foreground tab"
+    },
+    "createBackgroundTab": {
+        "message": "Create background tab"
+    },
+    "iconAction": {
+        "message": "Icon action"
+    },
+    "iconActionEventType": {
+        "message": "Event type"
+    },
+    "click": {
+        "message": "Click"
+    },
+    "dblClick": {
+        "message": "Double-click"
+    },
+    "useDnsResolve": {
+        "message": "DNS resolution assistance"
+    },
+    "useDnsResolveTip": {
+        "message": "Use 'chrome.dns' to resolve IP\nwhen proxy is on"
+    },
+    "contextMenuManage": {
+        "message": "Context Menu Management"
+    },
+    "addMenu": {
+        "message": "Add menu"
+    },
+    "moveSelected": {
+        "message": "Move selected:"
+    },
+    "BackupAndRecovery": {
+        "message": "Backup and Recovery:"
+    },
+    "import": {
+        "message": "Import"
+    },
+    "export": {
+        "message": "Export"
+    },
+    "reset": {
+        "message": "Reset"
+    },
+    "resetConfigTip": {
+        "message": "This will clear all configurations, are you sure?"
+    },
+    "GeoIPDate": {
+        "message": "GeoIP Date: "
+    },
+
+    "templatePlaceholder": {
+        "message": "Placeholder"
+    },
+    "example": {
+        "message": "Example: "
+    },
+    "USA": {
+        "message": "USA"
+    },
+    "tab": {
+        "message": "Tab:"
+    },
+    "urlPrase": {
+        "message": "URL parsed:"
+    },
+    "locationInfo": {
+        "message": "Location information:"
+    },
+    "language": {
+        "message": "Language:"
+    },
+    "templateName": {
+        "message": "Name:"
+    },
+    "templateType": {
+        "message": "Type:"
+    },
+    "openUrl": {
+        "message": "Open URL"
+    },
+    "copy": {
+        "message": "Copy"
+    },
+    "template": {
+        "message": "Template:"
+    },
+    "icon": {
+        "message": "Icon:"
+    },
+    "doubleClickTip": {
+        "message": "[Double-click to clear]\nIcon addresses starting with base64 encoding or icons/ will not automatically update when the template changes."
+    },
+    "save": {
+        "message": "Save"
+    },
+    "cancel": {
+        "message": "Cancel"
+    }
+}
