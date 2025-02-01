@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="icons/16.png">
+<title>FlagTrace</title>
+<link rel="stylesheet" href="options/options.css">
+<link rel="stylesheet" href="libs/dragula.css">
+<script src='config.js'></script>
+</head>
+<body>
+    <header>
+        <fieldset class="flex h-center space-between">
+            <div>
+                <span data-i18n="openIn"></span>
+                <select id="openIn" name="openIn">
+                    <option value="0b00" data-i18n="currentTab"></option>
+                    <option value="0b11" data-i18n="createForegroundTab"></option>
+                    <option value="0b10" data-i18n="createBackgroundTab"></option>
+                </select>
+            </div>
+            <div>
+                <span data-i18n="iconAction"></span>
+                <select id="iconClick" name="iconClick" data-i18n="title=iconActionEventType">
+                    <option value="offclick" data-i18n=""></option>
+                    <option value="click" data-i18n="click"></option>
+                    <option value="dblclick" data-i18n="dblClick"></option>
+                </select>
+                <select id="iconMenuId" name="iconMenuId">
+                </select>
+            </div>
+            <label class="flex h-center gap">
+             <input type="checkbox" name="useDNS" data-i18n="title=useDnsResolveTip" />
+             <span data-i18n="useDnsResolve"></span>
+            </label>
+        </fieldset>
+    </header>
+    <main>
+        <fieldset>
+            <legend data-i18n="contextMenuManage"></legend>
+            <div class="menu-list"></div>
+            <div class="menu-control flex h-center">
+                <button class="add" data-i18n="addMenu"></button>
+                <span data-i18n="moveSelected"></span>
+                <button class="up e-shadow" disabled></button>
+                <button class="down e-shadow" disabled></button>
+            </div>
+        </fieldset>
+    </main>
+    <div id="dialog" class="flex-col gap" hidden>
+        <div class="flex template-var-box">
+            <span class="template-tip"  data-i18n="templatePlaceholder"></span>
+            <table class="template-vars flex-expand">
+                <tr>
+                    <td data-i18n="tab"></td>
+                    <td>
+                        <var data-i18n="title:prefix=example" title="https://github.com/qinxs/FlagTrace">{url}</var>
+                        <var data-i18n="title:prefix=example" title="qinxs/FlagTrace">{title}</var>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="urlPrase"></td>
+                    <td>
+                        <var data-i18n="title:prefix=example" title="https://github.com">{origin}</var>
+                        <var data-i18n="title:prefix=example" title="github.com">{hostname}</var>
+                        <var data-i18n="title:prefix=example" title="/qinxs/FlagTrace">{pathname}</var>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="locationInfo"></td>
+                    <td>
+                        <var data-i18n="title:prefix=example" title="140.82.112.4">{ip}</var>
+                        <var data-i18n="title=USA,title:prefix=example">{country}</var>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-i18n="language"></td>
+                    <td>
+                        <var data-i18n="title:prefix=example" title="zh-CN">{lang}</var>
+                        <var data-i18n="title:prefix=example" title="zh">{lang0}</var>
+                        <var data-i18n="title:prefix=example" title="CN">{lang1}</var>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="flex gap">
+            <div class="flex">
+                <span data-i18n="templateName"></span>
+                <input type="text" id="edit-dialog-name" required minlength="1" maxlength="32">
+            </div>
+            <div class="flex h-center">
+                <span data-i18n="templateType"></span>
+                <select id="edit-dialog-func" name="edit-dialog-func" tabindex="-1">
+                    <option value="openUrl" data-i18n="openUrl"></option>
+                    <option value="copy" data-i18n="copy"></option>
+                </select>
+            </div>
+        </div>
+        <div class="flex">
+            <span data-i18n="template"></span>
+            <input type="text" id="edit-dialog-url" class="flex-expand">
+        </div>
+        <div class="flex firefox-show-only">
+            <span data-i18n="icon"></span>
+            <div class="input-box flex h-center gap flex-expand">
+                <img id="edit-dialog-favicon" class="favicon" data-i18n="title=doubleClickTip" alt="">
+                <input type="text" id="edit-dialog-icon" class="flex-expand">
+            </div>
+        </div>
+        <div class="dialog-btns">
+            <button id="edit-save" class="button" data-i18n="save"></button>
+            <button id="edit-cancel" class="button" data-i18n="cancel"></button>
+        </div>
+    </div>
+    <footer class="flex h-center space-between">
+        <div class="flex h-center gap">
+            <div data-i18n="BackupAndRecovery"></div>
+            <button id="importBtn" class="button" data-i18n="import"></button>
+            <button id="exportBtn" class="button" data-i18n="export"></button>
+            <button id="resetBtn" class="button" data-i18n="reset"></button>
+        </div>
+        <div class="flex gap">
+            <a class="flex h-center gap" href="https://github.com/qinxs/FlagTrace" target="_blank">
+                <img class="transY-1px" src="icons/options/about.png">
+                <span>FlagTrace</span>
+                <span id="version"></span>
+            </a>
+            <span id="GeoIPDB"></span>
+        </div>
+    </footer>
+    <div id="mask" class></div>
+<script src='options/functions.js'></script>
+<script src='options/options.js'></script>
+<script src="libs/dragula.min.js"></script>
+</body>
+</html>
