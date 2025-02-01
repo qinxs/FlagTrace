@@ -1,0 +1,155 @@
+{
+    "appDesc": {
+        "message": "显示网站服务器位置的国旗、域名工具"
+    },
+    "options": {
+        "message": "选项"
+    },
+
+    "location": {
+        "message": "归属地"
+    },
+    "domain": {
+        "message": "域　名"
+    },
+    "ipAdress": {
+        "message": "IP地址"
+    },
+    "ipAdressFromDNS": {
+        "message": "ByDNS"
+    },
+    "ipClass": {
+        "message": "类　别"
+    },
+    "class": {
+        "message": " 类"
+    },
+    "LAN": {
+        "message": "局域网"
+    },
+    "localComputer": {
+        "message": "本机"
+    },
+    "unknown": {
+        "message": "- -"
+    },
+    "noIPTip": {
+        "message": "没有获取到 IP 信息！"
+    },
+    "internalPage": {
+        "message": "内部页面"
+    },
+    "extensionPage": {
+        "message": "扩展页面"
+    },
+    "localFile": {
+        "message": "本地文件"
+    },
+
+    "openIn": {
+        "message": "页面打开方式"
+    },
+    "currentTab": {
+        "message": "当前标签页"
+    },
+    "createForegroundTab": {
+        "message": "新建前台标签页"
+    },
+    "createBackgroundTab": {
+        "message": "新建后台标签页"
+    },
+    "iconAction": {
+        "message": "图标动作"
+    },
+    "iconActionEventType": {
+        "message": "事件类型"
+    },
+    "click": {
+        "message": "单击"
+    },
+    "dblClick": {
+        "message": "双击"
+    },
+    "useDnsResolve": {
+        "message": "DNS 辅助解析"
+    },
+    "useDnsResolveTip": {
+        "message": "开启代理时\n使用 chrome.dns 解析获得 IP"
+    },
+    "contextMenuManage": {
+        "message": "右键菜单管理"
+    },
+    "addMenu": {
+        "message": "添加菜单"
+    },
+    "moveSelected": {
+        "message": "移动所选："
+    },
+    "BackupAndRecovery": {
+        "message": "备份与恢复:"
+    },
+    "import": {
+        "message": "导入"
+    },
+    "export": {
+        "message": "导出"
+    },
+    "reset": {
+        "message": "重置"
+    },
+    "resetConfigTip": {
+        "message": "这将清空所有配置，确定吗？"
+    },
+    "GeoIPDate": {
+        "message": "IP库日期："
+    },
+
+    "templatePlaceholder": {
+        "message": "模 板 占 位 符"
+    },
+    "example": {
+        "message": "示例："
+    },
+    "USA": {
+        "message": "美国"
+    },
+    "tab": {
+        "message": "标签页："
+    },
+    "urlPrase": {
+        "message": "URL 解析："
+    },
+    "locationInfo": {
+        "message": "定位信息："
+    },
+    "language": {
+        "message": "语言："
+    },
+    "templateName": {
+        "message": "名称:"
+    },
+    "templateType": {
+        "message": "类型:"
+    },
+    "openUrl": {
+        "message": "打开 URL"
+    },
+    "copy": {
+        "message": "复制"
+    },
+    "template": {
+        "message": "模板:"
+    },
+    "icon": {
+        "message": "图标:"
+    },
+    "doubleClickTip": {
+        "message": "[ 双击清空 ]\n图标地址为base64编码或者以icons/开头时\n不会随模板改变而自动更新"
+    },
+    "save": {
+        "message": "保存"
+    },
+    "cancel": {
+        "message": "取消"
+    }
+}
