@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG 转 PNG · 原生渲染</title>
+    <link rel="stylesheet" type="text/css" href="./app.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="desc">选择或拖拽 SVG 文件，自动转换为 PNG 并下载。</div>
+
+      <div class="toolbar">
+        <input type="file" id="filePicker" multiple accept=".svg" hidden />
+        <label for="filePicker">📁 选择 SVG 文件</label>
+        <span id="fileCount">未选择</span>
+        <button id="convertBtn">▶ 开始转换</button>
+      </div>
+
+      <div class="sizeInfo">
+        <label>
+          <input type="checkbox" id="useOriginalSize" />
+          按原始尺寸转换
+        </label>
+        宽高:
+        <input type="number" id="widthInput" value="32" min="1" title="宽度 (px)" />
+        <span class="sep">×</span>
+        <input type="number" id="heightInput" value="32" min="1" title="高度 (px)" />
+        <select id="sizePreset">
+          <option value="16">16 × 16</option>
+          <option value="32" selected>32 × 32</option>
+          <option value="64">64 × 64</option>
+          <option value="128">128 × 128</option>
+          <option value="256">256 × 256</option>
+        </select>
+      </div>
+
+      <div id="log">等待操作…</div>
+
+      <div class="note">
+        使用浏览器原生渲染，支持 CSS transform / calc 。
+        <br />
+        推荐使用 Chromium 系浏览器（复杂 SVG 图标，Firefox 可能无法渲染）。
+        <br />
+        <br />
+        所有处理均在本地浏览器完成，<strong>不上传任何数据</strong>。
+      </div>
+    </div>
+    <script src="./app.js"></script>
+    <script src="./libs/jszip.min.js"></script>
+  </body>
+</html>
