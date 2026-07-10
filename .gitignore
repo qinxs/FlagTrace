@@ -10,3 +10,5 @@ TODO.md
 !/tools/mmdbinspect/
 !/tools/svg2png/
 !/tools/buildFlagTraceIcons.py
+!/tools/geoipupdate.exe
+.geoipupdate.lock
