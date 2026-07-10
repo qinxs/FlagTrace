@@ -8,3 +8,5 @@ TODO.md
 
 /tools/*
 !/tools/mmdbinspect/
+!/tools/svg2png/
+!/tools/buildFlagTraceIcons.py
