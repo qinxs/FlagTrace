@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+  background: #f4f6f9;
+  /* 确保 body 占满视口高度，便于拖拽覆盖层定位 */
+  min-height: 80vh;
+  position: relative;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+button {
+  padding: 9px 24px;
+  background: #34c759;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-inline-start: auto;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+input, select {
+  width: 6em;
+  height: 28px;
+  font-size: 16px;
+}
+label {
+  display: inline-block;
+  padding: 9px 22px;
+  background: #007aff;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+label:hover {
+  background: #005bbf;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.desc {
+  font-style: italic;
+  color: #666;
+}
+
+.toolbar,
+.sizeInfo {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.sizeInfo > label {
+  margin-inline-end: auto;
+  background: #999;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+#useOriginalSize {
+  all: revert;
+}
+
+#sizePreset {
+  width: 8em;
+}
+
+#fileCount {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+#log {
+  margin: 20px 0;
+  padding: 14px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  max-height: 320px;
+  min-height: 100px;
+  overflow-y: auto;
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.note {
+  padding: 10px 14px;
+  font-size: 0.87rem;
+  color: #856404;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+}
+
+/* 拖拽进行时：半透明遮罩 + 虚线边框 + 居中提示 */
+body.dragging::after {
+  content: '📄 释放鼠标以导入 SVG 文件';
+  position: fixed;
+  inset: 0;
+  margin: 1em;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #007aff;
+  background: rgba(240, 248, 255, 0.88);
+  border: 4px dashed #007aff;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  /* 防止遮罩干扰拖拽事件 */
+}
+
+/* 拖拽时卡片区域的微妙的阴影变化，提升反馈感 */
+body.dragging .card {
+  box-shadow: 0 4px 30px rgba(0, 122, 255, 0.15);
+  transition: box-shadow 0.25s ease;
+}
