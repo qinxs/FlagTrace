@@ -8,6 +8,7 @@
     "build": "pnpm build:chrome && pnpm build:firefox",
     "build:chrome": "cross-env TARGET_BROWSER=chrome vite build && pnpm run delIndex",
     "build:firefox": "cross-env TARGET_BROWSER=firefox vite build && pnpm run delIndex",
+    "upgeo": "node scripts/update-geoip.mjs",
     "zip": "node scripts/zip.mjs --chrome --firefox",
     "zip:chrome": "node scripts/zip.mjs --chrome",
     "zip:firefox": "node scripts/zip.mjs --firefox",
