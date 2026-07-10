@@ -39,9 +39,17 @@ export default defineConfig({
             "src/*",
             "!src/manifest*.json",
             "!src/icons/**",
+            "!src/db/**",
             isFF ? "!src/worker.js" : "!src/donothing.js",
           ],
           dest: '',
+        },
+        {
+          src: [
+            "src/db/*",
+            "!src/db/.geoipupdate.lock",
+          ],
+          dest: `db/`,
         },
         {
           src: [
