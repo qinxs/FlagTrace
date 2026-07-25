@@ -1,4 +1,4 @@
-name: Publish to Firefox Add-ons
+name: Publish Extension
 
 on:
   push:
@@ -44,3 +44,57 @@ jobs:
             --api-secret=$JWT_SECRET \
             --channel=listed \
             --amo-metadata=amo-metadata.json
+  deploy-chrome:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Chrome Extension
+        run: pnpm build:chrome
+
+      - name: Package Chrome Extension
+        run: pnpm zip:chrome
+
+      - name: Get access_token from refresh_token
+        id: chrome_token
+        run: |
+          ACCESS_TOKEN=$(curl -s "https://oauth2.googleapis.com/token" \
+            -d "client_id=${{ secrets.CWS_CLIENT_ID }}" \
+            -d "client_secret=${{ secrets.CWS_CLIENT_SECRET }}" \
+            -d "refresh_token=${{ secrets.CWS_REFRESH_TOKEN }}" \
+            -d "grant_type=refresh_token" | jq -r '.access_token')
+          echo "access_token=$ACCESS_TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Upload to Chrome Web Store
+        run: |
+          curl \
+            -H "Authorization: Bearer ${{ steps.chrome_token.outputs.access_token }}" \
+            -H "x-goog-api-version: 2" \
+            -X PUT \
+            -T dist/chrome.zip \
+            https://www.googleapis.com/upload/chromewebstore/v1.1/items/${{ secrets.CWS_EXTENSION_ID }}
+
+      - name: Publish to Chrome Web Store
+        run: |
+          curl \
+            -H "Authorization: Bearer ${{ steps.chrome_token.outputs.access_token }}" \
+            -H "x-goog-api-version: 2" \
+            -H "Content-Length: 0" \
+            -X POST \
+            https://www.googleapis.com/chromewebstore/v1.1/items/${{ secrets.CWS_EXTENSION_ID }}/publish
