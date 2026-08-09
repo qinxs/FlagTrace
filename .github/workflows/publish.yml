@@ -98,3 +98,12 @@ jobs:
             -H "Content-Length: 0" \
             -X POST \
             https://www.googleapis.com/chromewebstore/v1.1/items/${{ secrets.CWS_EXTENSION_ID }}/publish
+      - name: Publish to Edge Add-ons Store
+        uses: wdzeng/edge-addon@v2
+        with:
+          product-id: ${{ secrets.EDGE_PRODUCT_ID }}
+          zip-path: dist/chrome.zip
+          api-key: ${{ secrets.EDGE_API_KEY }}
+          client-id: ${{ secrets.EDGE_CLIENT_ID }}
+          upload-only: false
+          # notes-for-certification: ${{ secrets.EDGE_NOTES }}
